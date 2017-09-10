@@ -1,6 +1,6 @@
 ## Northern Trail Outfitters Sample App
 
-Read [this blog post](https://developer.salesforce.com/blogs/developer-relations/2017/07/northern-trail-outfitters-new-sample-application-lightning-components-platform-events-salesforce-dx.html) to learn more about the application.
+[![Deploy](https://deploy-to-sfdx.com/dist/assets/images/DeployToSFDX.svg)](https://deploy-to-sfdx.com)
 
 ## Installation Instructions
 
@@ -42,4 +42,4 @@ Read [this blog post](https://developer.salesforce.com/blogs/developer-relations
 
 Or, deploy to SFDX using the button below:
 
-[![Deploy](https://deploy-to-sfdx.com/dist/assets/images/DeployToSFDX.svg)](https://deploy-to-sfdx.com/deploy?template=https://github.com/ccoenraets/northern-trail)
+[![Deploy](https://deploy-to-sfdx.com/dist/assets/images/DeployToSFDX.svg)](https://deploy-to-sfdx.com)
