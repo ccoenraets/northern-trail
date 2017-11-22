@@ -1,0 +1,28 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global">
+
+    <ltng:require scripts="{!$Resource.chartjs}" afterScriptsLoaded="{!c.scriptsLoaded}" />
+
+    <aura:attribute name="year" type="String" />
+    <aura:attribute name="country" type="String" />
+    <aura:attribute name="title" type="String" default="Medal breakdown" />
+
+    <aura:handler event="c:EinsteinEvent" action="{!c.onEinsteinEvent}" />
+
+    <lightning:card>
+
+        <aura:set attribute="title">
+            <img src="{!$Resource.nto + '/einstein_logo.svg'}" class="icon" /> Sentiment Today
+        </aura:set>
+
+        <div class="legend">
+            <img src="{!$Resource.nto + '/emoji-positive-color.svg'}" class="emoji" />
+            <img src="{!$Resource.nto + '/emoji-neutral-color.svg'}" class="emoji"/>
+            <img src="{!$Resource.nto + '/emoji-negative-color.svg'}" class="emoji" />
+        </div>    
+        <div class="wrapper">
+            <canvas aura:id="chart" height="140"></canvas>
+        </div>
+
+    </lightning:card>
+
+</aura:component>

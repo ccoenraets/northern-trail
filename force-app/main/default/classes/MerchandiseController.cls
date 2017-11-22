@@ -11,6 +11,7 @@ global with sharing class MerchandiseController {
         return values;
     }
     
+    
     public class PagedResult {
         
         @AuraEnabled

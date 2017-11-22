@@ -4,7 +4,7 @@
     <aura:attribute name="recordId" type="Id" />
     <aura:attribute name="record" type="Object" />
     <aura:attribute name="steps" type="String[]" default="['Draft', 'Submitted to Manufacturing', 'Approved by Manufacturing', 'Ordered']" />
-    <aura:attribute name="pathName" type="String" />
+    <aura:attribute name="pathName" type="String" access="global"/>
     
     <force:recordData aura:id="mixRecord"
                       recordId="{!v.recordId}"

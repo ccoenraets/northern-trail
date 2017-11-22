@@ -1,0 +1,8 @@
+<aura:component implements="flexipage:availableForAllPageTypes" controller="SessionController" access="global" >
+	
+    <ltng:require scripts="{!$Resource.cometd + '/cometd.js'}"
+                  afterScriptsLoaded="{!c.onJSLoaded}" />
+    
+    <aura:registerEvent name="onSentiment" type="c:SentimentEvent"/>
+    
+</aura:component>

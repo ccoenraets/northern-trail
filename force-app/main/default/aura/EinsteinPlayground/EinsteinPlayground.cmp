@@ -1,0 +1,38 @@
+<aura:component implements="flexipage:availableForAllPageTypes" controller="EinsteinController" access="global" >
+    
+    <aura:attribute name="visionModelId" type="String" access="global"/>
+    <aura:attribute name="sentimentModelId" type="String" access="global"/>
+    <aura:attribute name="intentModelId" type="String" access="global"/>
+    
+    <div>
+        <lightning:tabset >
+            <lightning:tab >
+                <aura:set attribute="label">
+                    <lightning:icon iconName="utility:preview" size="small"/>
+                    Vision
+                </aura:set>
+                <c:EinsteinVision modelId="{!v.visionModelId}"/>
+            </lightning:tab>
+            <lightning:tab >
+                <aura:set attribute="label">
+                    <lightning:icon iconName="utility:like" size="small"/>
+                    Sentiment
+                </aura:set>
+                <c:EinsteinSentiment modelId="{!v.sentimentModelId}"/>
+            </lightning:tab>
+            <lightning:tab >
+                <aura:set attribute="label">
+                    <lightning:icon iconName="utility:signpost" size="small"/>
+                    Intent
+                </aura:set>
+                <c:EinsteinIntent modelId="{!v.intentModelId}"/>
+            </lightning:tab>
+        </lightning:tabset>    
+        
+        <aura:if isTrue="{! v.waiting }">
+            <lightning:spinner size="large"/>
+        </aura:if>            
+        
+    </div>
+    
+</aura:component>

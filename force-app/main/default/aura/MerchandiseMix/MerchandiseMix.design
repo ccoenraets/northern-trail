@@ -1,3 +1,4 @@
 <design:component label="Merchandise Mix">
     <design:attribute name="showChart" label="Mix Breakdown Chart" default="true"/>
+    <design:attribute name="isTileView" label="Tile View" default="true"/>
 </design:component>

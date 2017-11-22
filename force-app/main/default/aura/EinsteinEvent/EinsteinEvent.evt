@@ -1,0 +1,12 @@
+<aura:event type="APPLICATION" description="Event template" access="global">
+    <aura:attribute name="phrase" type="String"/>
+    <aura:attribute name="origin" type="String"/>
+    <aura:attribute name="messageURL" type="String"/>
+    <aura:attribute name="user" type="String"/>
+    <aura:attribute name="userPicURL" type="String"/>
+    <aura:attribute name="imageURL" type="String"/>
+    <aura:attribute name="intentPredictions" type="Object"/>
+    <aura:attribute name="sentimentPredictions" type="Object"/>
+    <aura:attribute name="imagePredictions" type="Object"/>
+    <aura:attribute name="visionPredictions" type="Object"/>
+</aura:event>

@@ -1,4 +1,6 @@
 <aura:event type="APPLICATION" description="Event template" >
     <aura:attribute name="searchKey" type="String"/>
     <aura:attribute name="category" type="String"/>
+    <aura:attribute name="minPrice" type="Decimal"/>
+    <aura:attribute name="maxPrice" type="Decimal"/>
 </aura:event>

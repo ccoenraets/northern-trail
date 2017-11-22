@@ -1,0 +1,5 @@
+<aura:event type="APPLICATION" description="Event template" access="global">
+    <aura:attribute name="label" type="String"/>
+    <aura:attribute name="phrase" type="String"/>
+    <aura:attribute name="origin" type="String"/>
+</aura:event>

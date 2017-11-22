@@ -1,0 +1,23 @@
+.THIS {
+    height: 230px;
+    position: relative;
+    padding-bottom: 0;
+}
+
+.THIS .icon {
+    height: 24px;
+}
+
+.THIS .wrapper {
+    position: absolute;
+    width: 100%;
+}
+
+.THIS .legend {
+    text-align: center;
+}
+
+.THIS .emoji {
+    height: 22px;
+    margin: 0 4px 4px 4px;
+}

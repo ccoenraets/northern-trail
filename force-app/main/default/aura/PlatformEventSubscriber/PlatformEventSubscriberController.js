@@ -5,7 +5,7 @@
             var sessionId = response.getReturnValue();
             var cometd = new window.org.cometd.CometD();
             cometd.configure({
-                url: window.location.protocol + '//' + window.location.hostname + '/cometd/40.0/',
+                url: window.location.protocol + '//' + window.location.hostname + '/cometd/41.0/',
                 requestHeaders: { Authorization: 'OAuth ' + sessionId},
                 appendMessageTypeToURL : false
             });

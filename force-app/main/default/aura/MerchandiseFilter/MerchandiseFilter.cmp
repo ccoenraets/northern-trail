@@ -1,29 +1,36 @@
-<aura:component implements="flexipage:availableForAllPageTypes" access="global" >
-    
-    <aura:attribute name="showSearch" type="Boolean" default="true"/>
-    <aura:attribute name="showCategory" type="Boolean" default="true"/>
-    <aura:attribute name="showSubcategory" type="Boolean" default="true"/>
-    
-    <aura:registerEvent name="filterChange" type="c:MerchandiseFilterChange"/>
-    
-    <div class="slds-text-heading_small">All Available Merchandise</div>
-    
-    <lightning:layout class="slds-m-vertical_medium">
-        <aura:if isTrue="{!v.showSearch}">
-            <lightning:layoutitem flexibility="grow" class="right-padding">
-                <c:SearchBar onchange="{!c.searchKeyChangeHandler}"/>
-            </lightning:layoutitem>
-        </aura:if>
-        <aura:if isTrue="{!v.showCategory}">
-            <lightning:layoutitem flexibility="grow" class="right-padding">
-                <c:CategorySelector onchange="{!c.categoryChangeHandler}"/>
-            </lightning:layoutitem>
-        </aura:if>
-        <aura:if isTrue="{!v.showSubcategory}">
-            <lightning:layoutitem flexibility="grow">
-                <c:SubcategorySelector />
-            </lightning:layoutitem>
-        </aura:if>
-    </lightning:layout>
-    
+<aura:component implements="flexipage:availableForAllPageTypes" access="global">
+
+    <aura:attribute name="showNameFilter" type="Boolean" default="true" access="global" />
+    <aura:attribute name="showCategoryFilter" type="Boolean" default="true" access="global" />
+    <aura:attribute name="showPriceFilter" type="Boolean" default="true" access="global" />
+
+    <aura:registerEvent name="filterChange" type="c:MerchandiseFilterChange" />
+
+    <lightning:card title="Merchandise Filters" iconName="custom:custom39">
+
+        <lightning:accordion>
+
+            <aura:if isTrue="{!v.showNameFilter}">
+                <lightning:accordionSection label="Name">
+                    <c:SearchBar onchange="{!c.searchKeyChangeHandler}" />
+                </lightning:accordionSection>
+            </aura:if>
+
+            <aura:if isTrue="{!v.showCategoryFilter}">
+                <lightning:accordionSection label="Category">
+                    <c:CategorySelector onchange="{!c.categoryChangeHandler}" />
+                    <c:SubcategorySelector />
+                </lightning:accordionSection>
+            </aura:if>
+
+            <aura:if isTrue="{!v.showPriceFilter}">
+                <lightning:accordionSection label="Price">
+                    <c:Range onchange="{!c.rangeChangeHandler}" />
+                </lightning:accordionSection>
+            </aura:if>
+
+        </lightning:accordion>
+
+    </lightning:card>
+
 </aura:component>

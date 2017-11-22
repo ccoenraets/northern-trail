@@ -1,0 +1,5 @@
+<design:component >
+    <design:attribute name="visionModelId" default="GeneralImageClassifier"/>
+    <design:attribute name="sentimentModelId" default="CommunitySentiment" />
+    <design:attribute name="intentModelId" default="RK4HGLQA3RW4IJNRVRGQWXHL7M"/>
+</design:component>

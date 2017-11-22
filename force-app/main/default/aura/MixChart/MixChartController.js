@@ -50,7 +50,7 @@
             if (mixItems && Array.isArray(mixItems)) {
                 var map = {};
                 mixItems.forEach(function(mixItem) {
-                    map[mixItem.Merchandise__r.Category__c] = (map[mixItem.Merchandise__r.Category__c] || 0) + (mixItem.Qty__c * mixItem.Merchandise__r.Price__c);
+                    map[mixItem.category] = (map[mixItem.category] || 0) + (mixItem.qty * mixItem.price);
                 });
                 var data = [
                     map.Womens || 0,

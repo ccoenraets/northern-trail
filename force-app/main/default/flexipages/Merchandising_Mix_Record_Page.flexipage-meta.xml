@@ -12,6 +12,11 @@
             </componentInstanceProperties>
             <componentName>force:highlightsPanel</componentName>
         </componentInstances>
+        <mode>Replace</mode>
+        <name>header</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
         <componentInstances>
             <componentInstanceProperties>
                 <name>pathName</name>
@@ -19,15 +24,14 @@
             </componentInstanceProperties>
             <componentName>MixPath</componentName>
         </componentInstances>
-        <mode>Replace</mode>
-        <name>header</name>
-        <type>Region</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
         <componentInstances>
             <componentName>force:detailPanel</componentName>
         </componentInstances>
         <componentInstances>
+            <componentInstanceProperties>
+                <name>isTileView</name>
+                <value>true</value>
+            </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>showChart</name>
                 <value>true</value>
@@ -41,25 +45,25 @@
     <flexiPageRegions>
         <componentInstances>
             <componentInstanceProperties>
-                <name>showCategory</name>
+                <name>showCategoryFilter</name>
                 <value>true</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
-                <name>showSearch</name>
+                <name>showNameFilter</name>
                 <value>true</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
-                <name>showSubcategory</name>
-                <value>false</value>
+                <name>showPriceFilter</name>
+                <value>true</value>
             </componentInstanceProperties>
             <componentName>MerchandiseFilter</componentName>
-        </componentInstances>
-        <componentInstances>
-            <componentInstanceProperties>
-                <name>filterName</name>
-                <value>MSRP</value>
-            </componentInstanceProperties>
-            <componentName>Range</componentName>
+            <visibilityRule>
+                <criteria>
+                    <leftValue>{!Record.Status__c}</leftValue>
+                    <operator>EQUAL</operator>
+                    <rightValue>Draft</rightValue>
+                </criteria>
+            </visibilityRule>
         </componentInstances>
         <componentInstances>
             <componentInstanceProperties>
@@ -67,6 +71,13 @@
                 <value>8</value>
             </componentInstanceProperties>
             <componentName>MerchandiseList</componentName>
+            <visibilityRule>
+                <criteria>
+                    <leftValue>{!Record.Status__c}</leftValue>
+                    <operator>EQUAL</operator>
+                    <rightValue>Draft</rightValue>
+                </criteria>
+            </visibilityRule>
         </componentInstances>
         <mode>Replace</mode>
         <name>sidebar</name>

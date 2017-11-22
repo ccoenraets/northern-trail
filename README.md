@@ -11,7 +11,7 @@ Read [this blog post](https://developer.salesforce.com/blogs/developer-relations
 
 1. Clone the northern-trail repository:
     ```
-    git clone https://github.com/trailheadx/northern-trail
+    git clone https://github.com/ccoenraets/northern-trail
     cd northern-trail
     ```
 
@@ -32,13 +32,23 @@ Read [this blog post](https://developer.salesforce.com/blogs/developer-relations
 
 1. Load sample data:
     ```
-    sfdx force:data:tree:import --plan ./data/sample-data-Merchandise__c-plan.json
+    sfdx force:data:tree:import --plan ./data/Merchandise__c-plan.json
+    sfdx force:data:tree:import --plan ./data/Account-Merchandising_Mix__c-plan.json
     ```
 
 1. Open the scratch org:
     ```
     sfdx force:org:open
     ```
+
+1. Click the **Merchandise Mixes** tab, and click a merchandise mix
+
+1. Drag Merchandise from the right sidebar into the merchandise mix
+
+1. Click the **Submitted to Manufacturing** step in the Path component
+
+Install the [Northern Trail Manufacturing](https://github.com/ccoenraets/northern-trail-manufacturing) app to experiment with platform event-based integration.
+
 
 Or, deploy to SFDX using the button below:
 

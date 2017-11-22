@@ -1,0 +1,50 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global">
+
+    <aura:attribute name="phrase" type="String" />
+    <aura:attribute name="origin" type="String" />
+    <aura:attribute name="messageURL" type="String" />
+    <aura:attribute name="user" type="String" />
+    <aura:attribute name="userPicURL" type="String" />
+    <aura:attribute name="sentimentPredictions" type="Object" />
+    <aura:attribute name="intentPredictions" type="Object" />
+    <aura:attribute name="backgroundColor" type="String" default="#00A1E0" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler event="c:EinsteinEvent" action="{!c.onEinsteinEvent}" />
+
+    <div style="{! 'background-color:' + v.backgroundColor}">
+        <lightning:layout horizontalAlign="space">
+            <lightning:layoutItem flexibility="no-flex">
+                <img src="{!v.userPicURL}" class="profile-pic"/>
+            </lightning:layoutItem>
+            <lightning:layoutItem flexibility="grow" padding="horizontal-large">
+                <p class="phrase">{!v.phrase}</p>
+                <lightning:layout>
+                        <lightning:layoutItem>
+                                <p>{!v.sentimentPredictions.probabilities[0].label} (
+                                        <lightning:formattedNumber value="{!v.sentimentPredictions.probabilities[0].probability * 100}" maximumFractionDigits="0"
+                                        />%)</p>
+                                    <p>{!v.intentPredictions.probabilities[0].label} (
+                                        <lightning:formattedNumber value="{!v.intentPredictions.probabilities[0].probability * 100}" maximumFractionDigits="0" />%)</p>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem padding="horizontal-medium">
+                        <p>Origin: <a href="{!v.messageURL}">{!v.origin}</a></p>
+                        <p>User: {!v.user}</p>
+                    </lightning:layoutItem>
+                </lightning:layout>    
+            </lightning:layoutItem>
+            <lightning:layoutItem flexibility="no-flex">
+                    <aura:if isTrue="{!v.sentimentPredictions.probabilities[0].label == 'neutral' }">
+                        <img src="{!$Resource.nto + '/emoji-neutral.svg'}" class="emoji" />
+                    </aura:if>
+                    <aura:if isTrue="{!v.sentimentPredictions.probabilities[0].label == 'positive' }">
+                        <img src="{!$Resource.nto + '/emoji-positive.svg'}" class="emoji" />
+                    </aura:if>
+                    <aura:if isTrue="{!v.sentimentPredictions.probabilities[0].label == 'negative' }">
+                        <img src="{!$Resource.nto + '/emoji-negative.svg'}" class="emoji" />
+                    </aura:if>
+                </lightning:layoutItem>
+            </lightning:layout>
+    </div>
+
+</aura:component>

@@ -1,0 +1,49 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global">
+
+    <aura:attribute name="sentimentPredictions" type="Object" />
+    <aura:attribute name="intentPredictions" type="Object" />
+    <aura:attribute name="phrase" type="String" />
+    <aura:attribute name="backgroundColor" type="String" default="#89C059" />
+
+    <aura:handler event="c:EinsteinEvent" action="{!c.onEinsteinEvent}" />
+
+    <lightning:card title="Last Einstein Event">
+
+        <lightning:accordion>
+            <lightning:accordionSection label="Summary">
+                <aura:if isTrue="{! v.sentiment.label == 'positive' }">
+                    <img src="{!$Resource.nto + '/emoji-positive.svg'}" class="emoji" />
+                </aura:if>
+                <aura:if isTrue="{! v.sentiment.label == 'negative' }">
+                    <img src="{!$Resource.nto + '/emoji-negative.svg'}" class="emoji" />
+                </aura:if>
+                <p class="phrase">{!v.phrase}</p>
+            </lightning:accordionSection>
+            <lightning:accordionSection label="Sentiment">
+                <div class="slds-text-heading_small">Sentiment</div>
+                <aura:iteration items="{!v.sentimentPredictions.probabilities}" var="item">
+                    <lightning:layout class="result-grid">
+                        <lightning:layoutitem>
+                            <lightning:icon iconName="utility:like" size="x-small" /></lightning:layoutitem>
+                        <lightning:layoutitem>
+                            <lightning:formattedNumber value="{!item.probability * 100}" maximumFractionDigits="2" />%</lightning:layoutitem>
+                        <lightning:layoutitem flexibility="grow">{!item.label}</lightning:layoutitem>
+                    </lightning:layout>
+                </aura:iteration>
+            </lightning:accordionSection>
+            <lightning:accordionSection label="Intent">
+                <aura:iteration items="{!v.intentPredictions.probabilities}" var="item">
+                    <lightning:layout class="result-grid">
+                        <lightning:layoutitem>
+                            <lightning:icon iconName="utility:signpost" size="x-small" /></lightning:layoutitem>
+                        <lightning:layoutitem>
+                            <lightning:formattedNumber value="{!item.probability * 100}" maximumFractionDigits="2" />%</lightning:layoutitem>
+                        <lightning:layoutitem flexibility="grow">{!item.label}</lightning:layoutitem>
+                    </lightning:layout>
+                </aura:iteration>
+            </lightning:accordionSection>
+        </lightning:accordion>
+
+    </lightning:card>
+
+</aura:component>

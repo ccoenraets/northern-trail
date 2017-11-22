@@ -1,5 +1,7 @@
 .THIS {
-    margin: 0 28px;
+    background-color: #FFF;
+    border-radius: .25rem;
+    padding: 8px;
 }
 
 .THIS svg {

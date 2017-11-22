@@ -1,0 +1,15 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global" >
+
+    <ltng:require scripts="{!$Resource.chartjs}"
+                  afterScriptsLoaded="{!c.scriptsLoaded}" />
+
+    <div>
+        <div class="slds-text-heading_small">
+            <img src="{!$Resource.nto + '/einstein_logo.svg'}" class="logo"/>
+            Sentiment Timeline
+        </div>
+        
+	    <canvas aura:id="chart" height="350" width="100%"></canvas>
+    </div>
+    
+</aura:component>

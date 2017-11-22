@@ -1,73 +1,90 @@
 ({
-    loadMixItems : function(component, mixId) {
+    loadMixItems: function (component, mixId) {
         var action = component.get("c.getMixItems");
         action.setStorable();
-		action.setParams({
-      		"mixId": mixId
-	    	});
-	    	action.setCallback(this, function(response) {
-			var result = response.getReturnValue();
-            component.set("v.mixItems", result);
+        action.setParams({
+            "mixId": mixId
+        });
+        action.setCallback(this, function (response) {
+            var result = response.getReturnValue();
+            var mixItems = [];
+            result.forEach(function(item) {
+                var mixItem = {
+                    id: item.Id,
+                    merchandiseId: item.Merchandise__r.Id,
+                    name: item.Merchandise__r.Name,
+                    price: item.Merchandise__r.Price__c,
+                    category: item.Merchandise__r.Category__c,
+                    pictureURL: item.Merchandise__r.Picture_URL__c,
+                    qty: item.Qty__c
+                };
+                mixItems.push(mixItem);
+            });
+            component.set("v.mixItems", mixItems);
             this.calculateMix(component);
-	    	});
-	    	$A.enqueueAction(action);
-	},
+        });
+        $A.enqueueAction(action);
+    },
 
-	addItem : function(component, mixItem) {
+    addItem: function (component, mixItem) {
         var action = component.get("c.addMixItem");
-		action.setParams({
-      		"mixId": mixItem.Merchandising_Mix__c,
-      		"productId": mixItem.Merchandise__c,
-      		"qty": mixItem.Qty__c
-	    	});
-	    	action.setCallback(this, function(response) {
-			var result = response.getReturnValue();
-            mixItem.Id = result.Id;
+        action.setParams({
+            "mixId": mixItem.mixId,
+            "productId": mixItem.merchandiseId,
+            "qty": mixItem.qty
+        });
+        action.setCallback(this, function (response) {
+            var result = response.getReturnValue();
+            mixItem.id = result.Id;
             this.calculateMix(component);
-	    	});
-	    	$A.enqueueAction(action);
-	},
+        });
+        $A.enqueueAction(action);
+    },
 
-    updateItem : function(component, mixItem) {
+    updateItem: function (component, mixItem) {
         var action = component.get("c.updateMixItem");
-		action.setParams({
-      		"mixItem": mixItem
-	    	});
-		action.setCallback(this, function(response) {
+        action.setParams({
+            "mixItem": {
+                "Id": mixItem.id,
+                "Qty__c": mixItem.qty
+            }
+        });
+        action.setCallback(this, function (response) {
             this.calculateMix(component);
-	    	});
-	    	$A.enqueueAction(action);
-	},
+        });
+        $A.enqueueAction(action);
+    },
 
-	removeItem : function(component, mixItem) {
+    removeItem: function (component, mixItem) {
         var action = component.get("c.removeMixItem");
-		action.setParams({
-      		"mixItemId": mixItem.Id
-	    	});
-	    	action.setCallback(this, function(response) {
-	    		var result = response.getReturnValue();
-	    		var mixItems = component.get("v.mixItems");
-            for (var i=0; i<mixItems.length; i++) {
-                if(mixItems[i].Id === mixItem.Id) {
+        action.setParams({
+            "mixItemId": mixItem.id
+        });
+        action.setCallback(this, function (response) {
+            var result = response.getReturnValue();
+            console.log(result);
+            var mixItems = component.get("v.mixItems");
+            for (var i = 0; i < mixItems.length; i++) {
+                if (mixItems[i].id === mixItem.id) {
                     mixItems.splice(i, 1);
                     component.set("v.mixItems", mixItems);
                     this.calculateMix(component);
                     return;
                 }
             }
-	    	});
-	    	$A.enqueueAction(action);
-	},
+        });
+        $A.enqueueAction(action);
+    },
 
-    calculateMix : function(component) {
+    calculateMix: function (component) {
         var mixItems = component.get("v.mixItems");
         var oldTotalMSRP = component.get("v.totalMSRP");
         var totalQty = 0;
         var totalMSRP = 0;
         if (mixItems && Array.isArray(mixItems)) {
-            mixItems.forEach(function(mixItem) {
-      			totalQty = totalQty + mixItem.Qty__c;
-                totalMSRP = totalMSRP + (mixItem.Qty__c * mixItem.Merchandise__r.Price__c);
+            mixItems.forEach(function (mixItem) {
+                totalQty = totalQty + mixItem.qty;
+                totalMSRP = totalMSRP + (mixItem.qty * mixItem.price);
             });
             component.set("v.totalQty", totalQty);
             component.set("v.totalMSRP", totalMSRP);
@@ -77,6 +94,7 @@
                 numAnim.start();
             }
         }
-    }
+    },
+
 
 })

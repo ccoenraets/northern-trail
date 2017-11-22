@@ -12,8 +12,10 @@
     <tab>standard-home</tab>
     <tab>standard-Account</tab>
     <tab>standard-Contact</tab>
-    <tab>Merchandising_Mix__c</tab>
     <tab>Merchandise__c</tab>
+    <tab>Merchandising_Mix__c</tab>
+    <tab>Einstein_Playground</tab>
+    <tab>Einstein_Dashboard</tab>
     <tab>standard-File</tab>
     <tab>standard-Opportunity</tab>
     <tab>standard-Event</tab>

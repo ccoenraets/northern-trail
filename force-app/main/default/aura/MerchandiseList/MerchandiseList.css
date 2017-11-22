@@ -1,7 +1,6 @@
 .THIS {
-    position: relative;
-}
-
-.THIS .slds-app-launcher__tile {
-    margin: 0 0 1rem 0;
+    background-color: #FFF;
+    border-radius: .25rem;
+    /* position: relative; */
+    /* padding: 8px 0; */
 }

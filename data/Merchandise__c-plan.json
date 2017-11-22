@@ -4,7 +4,7 @@
         "saveRefs": true,
         "resolveRefs": false,
         "files": [
-            "sample-data-Merchandise__cs.json"
+            "Merchandise__cs.json"
         ]
     }
 ]

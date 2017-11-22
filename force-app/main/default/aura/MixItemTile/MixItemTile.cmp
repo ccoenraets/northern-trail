@@ -1,6 +1,6 @@
 <aura:component>
     
-    <aura:attribute name="mixItem" type="Mix_Item__c"/>
+    <aura:attribute name="mixItem" type="Object"/>
     <aura:attribute name="index" type="Integer"/>
     
     <aura:registerEvent name="navigateToSObject" type="force:navigateToSObject"/>
@@ -9,13 +9,13 @@
 
 	<lightning:layout >
 	    <lightning:layoutitem padding="around-medium" flexibility="no-grow">
-	        <img src="{#v.mixItem.Merchandise__r.Picture_URL__c}" class="product"/>
+	        <img src="{#v.mixItem.pictureURL}" class="product"/>
 	    </lightning:layoutitem>
 	    <lightning:layoutitem padding="around-medium" flexibility="grow">
-	        <span class="title"><a href="" onclick="{!c.titleClickHandler}">{#v.mixItem.Merchandise__r.Name}</a></span>
-	        <div>MSRP: <span class="price"><lightning:formattedNumber value="{#v.mixItem.Merchandise__r.Price__c}" style="currency"/></span></div>
+	        <span class="title"><a href="" onclick="{!c.titleClickHandler}">{#v.mixItem.name}</a></span>
+	        <div>MSRP: <span class="price"><lightning:formattedNumber value="{#v.mixItem.price}" style="currency"/></span></div>
 	        <div>Qty: 
-				<lightning:input type="number" name="qty" label="Qty" value="{#v.mixItem.Qty__c}" step="1"
+				<lightning:input type="number" name="qty" label="Qty" value="{#v.mixItem.qty}" step="1"
 					onblur="{!c.qtyChangeHandler}"/>
                 <lightning:buttonIcon iconName="utility:delete" variant="bare" size="medium" class="toggle"
 	                                      onclick="{!c.deleteHandler}"/>

@@ -1,0 +1,20 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global" >
+	
+    <ltng:require scripts="{!$Resource.chartjs}"
+                  afterScriptsLoaded="{!c.scriptsLoaded}" />
+    
+    <aura:attribute name="year" type="String"/>
+    <aura:attribute name="country" type="String"/>
+    <aura:attribute name="title" type="String" default="Medal breakdown"/>
+    
+    <aura:handler event="c:SentimentEvent" action="{!c.onSentimentEvent}"/>
+
+    <div>
+        <div class="slds-text-heading_small">
+            <img src="{!$Resource.nto + '/einstein_logo.svg'}" class="icon"/>
+            Sentiment Today
+	    </div>
+        <canvas aura:id="chart" height="350"></canvas>
+    </div>
+    
+</aura:component>

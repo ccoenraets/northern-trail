@@ -1,0 +1,21 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global">
+
+    <aura:attribute name="columns" type="List" />
+    <aura:attribute name="einsteinEvents" type="List" default="[]" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+    <aura:handler event="c:EinsteinEvent" action="{!c.onEinsteinEvent}" />
+
+    <lightning:card>
+
+        <aura:set attribute="title">
+            <img src="{!$Resource.nto + '/einstein_logo.svg'}" class="icon"/>
+            Einstein Events
+        </aura:set>
+
+        <lightning:datatable data="{!v.einsteinEvents}" columns="{!v.columns}" onrowselection="{!c.getSelectedName}" />
+
+    </lightning:card>
+
+</aura:component>

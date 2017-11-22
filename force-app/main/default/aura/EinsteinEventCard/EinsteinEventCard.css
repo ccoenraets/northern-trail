@@ -1,0 +1,53 @@
+.THIS .slds-card__body {
+    padding: 0 20px 12px 20px;
+}
+
+.THIS .emoji {
+	height: 22px;
+    width: 22px;
+    margin-right: 8px;
+}
+
+.THIS .profile-pic {
+	height: 48px;
+	width: 48px;
+    border-radius: 24px;
+}
+
+.THIS .twitter-pic {
+    height: 150px;
+    margin-top: 4px;
+    /* border: solid 1px #E5E5E5;
+    border-radius: 4px; */
+}
+
+.THIS .slds-text-heading_small {
+    padding: 12px 0;
+}
+
+.THIS .logo {
+    height: 24px;
+    margin-right: 4px;
+}
+
+.THIS .icon {
+    height: 18px;
+    margin-right: 8px;
+}
+
+.THIS .einstein {
+    color: #59C4EC;
+}
+
+.THIS .phrase {
+    margin-top: 12px;
+    margin-bottom: 4px;
+}
+
+.THIS a {
+    color: #FFFFFF;
+}
+
+.THIS button {
+    margin-top: 8px;
+}

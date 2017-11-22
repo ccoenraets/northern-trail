@@ -2,27 +2,28 @@
                 controller="MerchandiseController" access="global">
     
     <aura:attribute name="items" type="Merchandise__c[]"/>
-    <aura:attribute name="filterObject" type="Object" />
-    <aura:attribute name="pageSize" type="Integer" default="8"/>
+    <aura:attribute name="filterObject" type="Object" access="global"/>
+    <aura:attribute name="pageSize" type="Integer" default="8" access="global"/>
     <aura:attribute name="page" type="Integer"/>
     <aura:attribute name="pages" type="Integer"/>
     <aura:attribute name="total" type="Integer"/>
     
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
     <aura:handler event="c:MerchandiseFilterChange" action="{!c.filterChangeHandler}"/>
-    <aura:handler event="c:RangeChange" action="{!c.rangeChange}"/>
     
-    <div>
+    <lightning:card title="{! 'Merchandise List (' + v.total + ')'}" iconName="standard:product">
         
-		<aura:iteration items="{!v.items}" var="item" indexVar="index">
+        <aura:set attribute="actions">
+                <c:Paginator page="{!v.page}" pages="{!v.pages}" total="{!v.total}" label="products"
+                previousPage="{!c.onPreviousPage}" nextPage="{!c.onNextPage}"/>
+        </aura:set>
+
+        <aura:iteration items="{!v.items}" var="item" indexVar="index">
 		    <lightning:layoutitem size="12">
-		     <c:MerchandiseTile merchandise="{#item}" index="{#index}"/>
+		        <c:MerchandiseTile merchandise="{#item}" index="{#index}"/>
 		    </lightning:layoutitem>
 		</aura:iteration>
         
-        <c:Paginator page="{!v.page}" pages="{!v.pages}" total="{!v.total}" label="products"
-                     previousPage="{!c.onPreviousPage}" nextPage="{!c.onNextPage}"/>
-        
-    </div>
+    </lightning:card>
     
 </aura:component>

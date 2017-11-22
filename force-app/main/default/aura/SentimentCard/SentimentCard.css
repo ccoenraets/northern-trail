@@ -1,0 +1,39 @@
+.THIS {
+    height: 108px;
+    padding: 16px 12px;
+    color: #FFFFFF;
+    border-radius: 0.25rem;
+    box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.10);
+    -webkit-transition: background-color 300ms linear;
+    -ms-transition: background-color 300ms linear;
+    transition: background-color 300ms linear;
+}
+
+.THIS .emoji {
+	height: 70px;
+	width: 70px;
+}
+
+.THIS .profile-pic {
+	height: 70px;
+	width: 70px;
+    border-radius: 35px;
+}
+
+.THIS .slds-text-heading_small {
+    padding: 12px 0;
+}
+
+.THIS .logo {
+    height: 24px;
+    margin-right: 4px;
+}
+
+.THIS .phrase {
+    margin-bottom: 4px;
+    font-size: 16px;
+}
+
+.THIS a {
+    color: #FFFFFF;
+}

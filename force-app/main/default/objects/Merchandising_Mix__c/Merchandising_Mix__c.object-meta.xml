@@ -56,6 +56,7 @@
     <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
     <label>Merchandise Mix</label>
     <nameField>
         <label>Merchandising Mix Name</label>
@@ -63,6 +64,6 @@
     </nameField>
     <pluralLabel>Merchandise Mixes</pluralLabel>
     <searchLayouts/>
-    <sharingModel>ControlledByParent</sharingModel>
+    <sharingModel>ReadWrite</sharingModel>
     <visibility>Public</visibility>
 </CustomObject>

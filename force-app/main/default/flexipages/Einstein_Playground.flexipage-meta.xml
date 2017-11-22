@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlexiPage xmlns="http://soap.sforce.com/2006/04/metadata">
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>intentModelId</name>
+                <value>RK4HGLQA3RW4IJNRVRGQWXHL7M</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>sentimentModelId</name>
+                <value>CommunitySentiment</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>visionModelId</name>
+                <value>ZGXUUE2YNJRSAYMZ54AVNV3P4A</value>
+            </componentInstanceProperties>
+            <componentName>EinsteinPlayground</componentName>
+        </componentInstances>
+        <name>region1</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <name>region2</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <name>region3</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <masterLabel>Einstein Playground</masterLabel>
+    <template>
+        <name>flexipage:appHomeTemplateHeaderTwoColumnsLeftSidebar</name>
+    </template>
+    <type>AppPage</type>
+</FlexiPage>

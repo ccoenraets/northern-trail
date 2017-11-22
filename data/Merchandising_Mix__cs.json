@@ -1,0 +1,24 @@
+{
+    "records": [
+        {
+            "attributes": {
+                "type": "Merchandising_Mix__c",
+                "referenceId": "Merchandising_Mix__cRef1"
+            },
+            "Name": "Spring 2018 Collection",
+            "Season__c": "Spring 2018",
+            "Status__c": "Draft",
+            "Account__c": "@AccountRef1"
+        },
+        {
+            "attributes": {
+                "type": "Merchandising_Mix__c",
+                "referenceId": "Merchandising_Mix__cRef2"
+            },
+            "Name": "Winter 18 Collection",
+            "Season__c": "Winter 2018",
+            "Status__c": "Draft",
+            "Account__c": "@AccountRef2"
+        }
+    ]
+}

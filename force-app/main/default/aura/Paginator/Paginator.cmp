@@ -11,13 +11,13 @@
     <div class="container">
         <div class="left">
             <aura:if isTrue="{!v.page > 1}">
-                <lightning:buttonIcon iconName="utility:left" variant="border-filled" onclick="{!c.previousPage}"/>
+                <lightning:buttonIcon iconName="utility:chevronleft" variant="border-filled" onclick="{!c.previousPage}"/>
             </aura:if>
         </div>
-        <div class="centered">{!v.total}&nbsp;{!v.label} • page {!v.page} of {!v.pages}</div>
+        <div class="centered">{!v.page} of {!v.pages}</div>
         <div class="right">
             <aura:if isTrue="{!v.page &lt; v.pages}">
-                <lightning:buttonIcon iconName="utility:right" variant="border-filled" onclick="{!c.nextPage}"/>
+                <lightning:buttonIcon iconName="utility:chevronright" variant="border-filled" onclick="{!c.nextPage}"/>
             </aura:if>
         </div>
 	</div>
