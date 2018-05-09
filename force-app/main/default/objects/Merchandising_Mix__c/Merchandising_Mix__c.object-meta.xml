@@ -56,7 +56,7 @@
     <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
-    <externalSharingModel>ReadWrite</externalSharingModel>
+    <!--<externalSharingModel>ReadWrite</externalSharingModel>-->
     <label>Merchandise Mix</label>
     <nameField>
         <label>Merchandising Mix Name</label>
