@@ -15,7 +15,7 @@
 	},
 
 	qtyChangeHandler: function(component, event) {
-		var qty = event.getSource().get('v.value');
+		var qty = parseInt(event.getSource().get('v.value'), 10);
 		var mixItem = component.get("v.mixItem");
 		if (qty !== mixItem.qty) {
 			mixItem.qty = parseInt(qty, 10);
