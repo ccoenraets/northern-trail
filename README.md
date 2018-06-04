@@ -49,6 +49,12 @@ Read [this blog post](https://developer.salesforce.com/blogs/developer-relations
 
 Install the [Northern Trail Manufacturing](https://github.com/ccoenraets/northern-trail-manufacturing) app to experiment with platform event-based integration.
 
+1. Disable notifications
+
+1. Create a Connected APP
+
+Callback URL:
+http://localhost:3000/oauth/_callback
 
 Or, deploy to SFDX using the button below:
 
